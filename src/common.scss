@@ -134,7 +134,7 @@ body {
   overflow-x: hidden;
   font-size: 16px;
   background-color: #000;
-  font-family: "Poppins", sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   @media screen and (max-width: 700px) {
     font-size: 15px;
   }
@@ -248,7 +248,7 @@ a {
 
 .btn {
   padding: 18px 25px;
-  border-radius: 36px;
+  // border-radius: 36px;
   font-size: 16px;
   display: inline-flex;
   justify-content: space-between;
@@ -257,13 +257,7 @@ a {
   &:hover {
     opacity: 0.7;
   }
-  @media screen and (max-width: 1250px) {
-    padding: 10px;
-  }
 
-  @media screen and (max-width: 450px) {
-    padding: 8px;
-  }
   &-small {
     padding: 8px 15px !important;
     @media screen and (max-width: 1250px) {
@@ -285,9 +279,11 @@ a {
 }
 
 .btn-primary {
-  background-color: #1cabc8;
-  background: linear-gradient(90deg, #1cabc8 0%, #45e5f0 100%);
-  color: #1e1e1e;
+  // background-color: #1cabc8;
+  // background: linear-gradient(90deg, #1cabc8 0%, #45e5f0 100%);
+  // color: #1e1e1e;
+  background-color: #000;
+  color: #fff;
 }
 
 .btn-secondary {

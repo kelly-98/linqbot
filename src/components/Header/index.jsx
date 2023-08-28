@@ -20,24 +20,20 @@ function Modal({ children, shown, close }) {
       onClick={() => {
         // close modal when outside of modal is clicked
         close();
-      }}
-    >
+      }}>
       <div
         className="modal-content px-6 py-6 text-center flex flex-col justify-between items-center"
         onClick={(e) => {
           // do not close modal if anything inside modal content is clicked
           e.stopPropagation();
-        }}
-      >
+        }}>
         <button
           className="modal-custom-close transition-all hover:scale-110"
-          onClick={close}
-        >
+          onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
-            viewBox="0 0 384 512"
-          >
+            viewBox="0 0 384 512">
             <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
           </svg>
         </button>
@@ -88,37 +84,21 @@ export default function Header() {
     ? `${account.substring(0, 5)}...${account.substring(account.length - 4)}`
     : null;
   return (
-    <header className="w-full flex item-center justify-between py-10 flex-col gap-5 lg:flex-row">
+    <header className="px-10 w-full flex items-center bg-white item-center justify-between py-8 flex-col gap-5 lg:flex-row lg:py-5 lg:px-16">
       <div className="header-logo">
         <img src={HeaderLogo} alt="header-logo" />
       </div>
-      <ul className="flex justify-center gap-5 border-[1px] border-[#9AF3FA] py-4 px-5 rounded-full lg:gap-10 lg:px-10">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          }
-          to="/"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          }
-          to="/about"
-        >
-          About
+      <ul className="text-black items-center flex justify-center gap-5 lg:gap-10">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="#" target="_blank" rel="noopener noreferrer">
+          Buy
         </NavLink>
 
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          }
-          to="https://min.text"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Contact Us
+        <NavLink to="#" target="_blank" rel="noopener noreferrer">
+          Chart
+        </NavLink>
+        <NavLink to="#" target="_blank" rel="noopener noreferrer">
+          Docs
         </NavLink>
         {/* <div class="load-icon loading">
           <span></span>
@@ -128,8 +108,7 @@ export default function Header() {
       </ul>
       <button
         onClick={connectButtonClicked}
-        className="btn justify-center btn-primary font-semibold uppercase text-center py-4"
-      >
+        className="btn justify-center btn-primary font-semibold text-center py-4 lg:py-3">
         {(function () {
           if (active) {
             return chainId !== Number(process.env.REACT_APP_CHAIN_ID)
@@ -145,8 +124,7 @@ export default function Header() {
         shown={modalIsOpen}
         close={() => {
           setIsOpen(false);
-        }}
-      >
+        }}>
         <div className="">
           <div className="w-20 mx-auto">
             <img src={Logo} alt="" />
@@ -170,8 +148,7 @@ export default function Header() {
                     setIsCopy(false);
                   }, 2000);
                 }
-              }}
-            ></i>
+              }}></i>
             <span>{isCopy ? "Copied!" : "Copy Address"}</span>
           </div>
           <div
@@ -179,8 +156,7 @@ export default function Header() {
             onClick={() => {
               closeModal();
               logout();
-            }}
-          >
+            }}>
             <i className="fa-solid fa-arrow-right-from-bracket cursor-pointer mb-3 text-xl transition-all hover:scale-110"></i>
             <span>Disconnect</span>
           </div>

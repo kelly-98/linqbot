@@ -38,21 +38,19 @@ function Community() {
         <ul className="flex gap-5 mt-5 lg:mt-10">
           <li>
             <a
-              href="https://twitter.com/ShibariumLabsTG"
+              href="https://twitter.com/LinQPool"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl"
-            >
+              className="text-3xl">
               <i className="fa-brands fa-twitter"></i>
             </a>
           </li>
           <li>
             <a
-              href="https://t.me/ShibariumLabsTG"
+              href="https://t.me/LinQPool"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl"
-            >
+              className="text-3xl">
               <i className="fa-brands fa-telegram"></i>
             </a>
           </li>

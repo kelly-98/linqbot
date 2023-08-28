@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Pool from "./components/Pool";
 import Footer from "./components/Footer";
-import "./common.scss";
-import About from "./components/About";
 import video from "./assets/image/bg.mp4";
+import "./common.scss";
 
 function App() {
   return (
@@ -15,21 +14,17 @@ function App() {
         autoPlay
         muted
         loop
-        playsInline
-      >
+        playsInline>
         <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <Router>
-        <div className="relative z-10 container flex flex-col justify-center items-center">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center items-center">
           <Header />
 
-          <div className="flex-1 flex justify-center items-center max-w-4xl w-full">
+          <div className="container py-10 flex-1 flex justify-center items-center max-w-4xl w-full">
             <Routes>
               <Route path="/" element={<Pool />} />
-            </Routes>
-            <Routes>
-              <Route path="/about" element={<About />} />
             </Routes>
           </div>
 
