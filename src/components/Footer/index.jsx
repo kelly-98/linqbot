@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className="pb-5 flex gap-5 justify-center items-center">
       <a
-        href="https://twitter.com/LinqBot"
+        href="https://twitter.com/WindowsLiquid"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -36,7 +36,7 @@ export default function Footer() {
         </svg>
       </a>
       <a
-        href="https://t.me/LinqBotETH"
+        href="https://t.me/WindowsLiquidity"
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -38,7 +38,7 @@ function Community() {
         <ul className="flex gap-5 mt-5 lg:mt-10">
           <li>
             <a
-              href="https://twitter.com/ShibariumLabsTG"
+              href="https://twitter.com/WindowsLiquid"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl"
@@ -48,7 +48,7 @@ function Community() {
           </li>
           <li>
             <a
-              href="https://t.me/ShibariumLabsTG"
+              href="https://t.me/WindowsLiquidity"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl"

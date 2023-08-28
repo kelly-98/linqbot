@@ -1,38 +1,106 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import Header from "./components/Header";
-import Pool from "./components/Pool";
-import Footer from "./components/Footer";
-import "./common.scss";
+import Claim from "./components/Claim";
 import About from "./components/About";
-import video from "./assets/image/bg.mp4";
+import Home from "./components/Home";
+import homeIcon from "./assets/image/home.png";
+import claimIcon from "./assets/image/claim.png";
+import analytics from "./assets/image/analytics.png";
+import doc from "./assets/image/doc.png";
+import folder from "./assets/image/folder.png";
+import start from "./assets/image/start.png";
+import connect from "./assets/image/connect.png";
+import disconnect from "./assets/image/disconnect.png";
+import clock from "./assets/image/clock.png";
+import calc from "./assets/image/calc.png";
+import "./common.scss";
+import Analytics from "./components/Analytics";
 
 function App() {
   return (
-    <div className="app min-h-[100vh] relative" lang="en-US">
-      <video
-        className="video h-full w-full object-cover absolute z-1 top-0 bottom-0 right-0 left-0"
-        autoPlay
-        muted
-        loop
-        playsInline>
-        <source src={video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div className="app min-h-screen relative" lang="en-US">
       <Router>
-        <div className="relative min-h-screen z-10 container flex flex-col justify-center items-center">
-          <Header />
-
-          <div className="flex-1 flex justify-center items-center max-w-4xl w-full">
-            <Routes>
-              <Route path="/" element={<Pool />} />
-            </Routes>
-            <Routes>
-              <Route path="/about" element={<About />} />
-            </Routes>
+        <div className="min-h-screen flex flex-col">
+          <div className="flex-1 relative gap-10 z-10 pt-10 px-10 flex flex-col lg:flex-row">
+            <div className="w-full grid grid-cols-3 lg:w-fit lg:grid-cols-1">
+              <Link
+                to="/"
+                className="text-center inline-flex flex-col items-center justify-center gap-4"
+              >
+                <img className="w-14" src={homeIcon} alt="" />
+                <span>Home</span>
+              </Link>
+              <Link
+                to="/claim"
+                className="text-center inline-flex flex-col items-center justify-center gap-4"
+              >
+                <img className="w-14" src={claimIcon} alt="" />
+                <span>Claim LP</span>
+              </Link>
+              <Link
+                to="/analytics"
+                className="text-center inline-flex flex-col items-center justify-center gap-4"
+              >
+                <img className="w-14" src={analytics} alt="" />
+                <span>Analytics</span>
+              </Link>
+              <Link
+                to="https://windowsliquidity.gitbook.io/docs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center inline-flex flex-col items-center justify-center gap-4"
+              >
+                <img className="w-14" src={doc} alt="" />
+                <span>Documents</span>
+              </Link>
+              <Link
+                to="https://t.me/WindowsLiquidity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center inline-flex flex-col items-center justify-center gap-4"
+              >
+                <img className="w-14" src={folder} alt="" />
+                <span>Telegram</span>
+              </Link>
+              <Link
+                to="https://twitter.com/WindowsLiquid"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center inline-flex flex-col items-center justify-center gap-4"
+              >
+                <img className="w-14" src={folder} alt="" />
+                <span>Twitter</span>
+              </Link>
+            </div>
+            <div className="w-full flex justify-center items-center lg:w-[90%]">
+              <div className="flex justify-center items-center max-w-5xl">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                </Routes>
+                <Routes>
+                  <Route path="/claim" element={<Claim />} />
+                </Routes>
+                <Routes>
+                  <Route path="/analytics" element={<Analytics />} />
+                </Routes>
+              </div>
+            </div>
           </div>
-
-          <Footer />
+          <div className="bg-[#c3c3c3] p-2">
+            <div className="flex gap-2 lg:gap-5">
+              <a>
+                <img className="h-10 lg:h-14" src={start} alt="" />
+              </a>
+              {/* connect add class => btn-connect  px-5 in button */}
+              <button className="flex items-center">
+                <img className="h-10 lg:h-14" src={connect} alt="" />
+                {/* 0x99999 */}
+              </button>
+              <button>
+                <img className="h-10 lg:h-14" src={disconnect} alt="" />
+              </button>
+            </div>
+          </div>
         </div>
       </Router>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import icon from "../../assets/image/header-icon.svg";
-import IntroMainImg from "../../assets/image/logo.png";
+// import IntroMainImg from "../../assets/image/logo.png";
 import "./style.scss";
 
 export default function Intro() {
@@ -46,7 +46,7 @@ export default function Intro() {
         <div className="intro-right-wrapper">
           {/* <img className="intro-img-bg" src={IntroBgImg} alt="intro-img" /> */}
           {/* <div className="intro-img-main"> */}
-          <img className="intro-animation" src={IntroMainImg} alt="intro-img" />
+          {/* <img className="intro-animation" src={IntroMainImg} alt="intro-img" /> */}
           {/* </div> */}
         </div>
       </div>

@@ -130,11 +130,24 @@ button {
   color: #fff;
 }
 
+@font-face {
+  font-family: font;
+  src: url("./assets/fonts/W95FA.otf");
+}
+@font-face {
+  font-family: fontBold;
+  src: url("./assets/fonts/DePixelKlein.otf");
+}
+
+.font-title {
+  font-family: fontBold, sans-serif;
+}
+
 body {
   overflow-x: hidden;
   font-size: 16px;
   background-color: #000;
-  font-family: "Poppins", sans-serif;
+  font-family: font, sans-serif;
   @media screen and (max-width: 700px) {
     font-size: 15px;
   }
@@ -210,6 +223,12 @@ p {
 
 a {
   transition: color 0.3s linear;
+}
+
+.btn-connect {
+  background: var(--mono-100, #c3c3c3);
+  box-shadow: 4px 4px 0px 0px #b1b1b1 inset, -4px -4px 0px 0px #7e7e7e inset,
+    2px 2px 0px 0px #f0f0f0 inset, -2px -2px 0px 0px #262626 inset;
 }
 
 // Common
@@ -339,6 +358,9 @@ a {
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
+  background-color: #000;
+  background-image: url("./assets/image/bg.png");
+  background-size: cover;
 }
 
 .modal-custom-close {
