@@ -37,7 +37,8 @@ const useApp = () => {
 
     // const dividendTrackerAddress = await contract.dividendTracker();
 
-    const amount = await contract.withdrawableDividendOf(account);
+    const info = await contract.getAccountInfo(account);
+    const amount = info[1];
     return +ethers.utils.formatUnits(amount, 18);
   }, [account, chainId]);
 
