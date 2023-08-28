@@ -7,10 +7,6 @@ const useApp = () => {
   const { account, chainId } = useWeb3React();
 
   const getTotalDividendsDistributed = useCallback(async () => {
-    if (!account) {
-      return;
-    }
-
     const provider = new ethers.providers.JsonRpcProvider(
       process.env.REACT_APP_RPC_URL
     );
@@ -26,6 +22,10 @@ const useApp = () => {
   }, [account, chainId]);
 
   const dividendTokenBalanceOf = useCallback(async () => {
+    if (!account) {
+      return;
+    }
+
     const provider = new ethers.providers.JsonRpcProvider(
       process.env.REACT_APP_RPC_URL
     );
