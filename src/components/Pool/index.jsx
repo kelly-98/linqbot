@@ -42,9 +42,9 @@ export default function Pool() {
     }
   };
 
-  // useEffect(() => {
-  //   getData();
-  // }, [account, chainId, reload]);
+  useEffect(() => {
+    getData();
+  }, [account, chainId, reload]);
 
   return (
     <section className="w-full py-5 flex justify-center items-center text-center">
@@ -55,7 +55,12 @@ export default function Pool() {
         <div className="max-w-[250px] mx-auto my-6">
           <img src={Home} alt="" />
         </div>
-        <p className="text-lg">Forging a Connected Tomorrow and Beyond.</p>
+        <p className="text-lg">
+          Forging a Connected Tomorrow and Beyond. <br />
+          0x192f4bEF2B35Ebe109D35ad5899665573CcB0978
+          <br />
+          contactlinqbot.org
+        </p>
         <ul className="flex flex-col justify-center gap-6 my-8 lg:flex-row">
           <a
             href="https://app.uniswap.org/#/swap?outputCurrency=0x192f4bef2b35ebe109d35ad5899665573ccb0978&chain=ethereum"
@@ -182,8 +187,7 @@ export default function Pool() {
           </div>
           <button
             className="btn-primary py-3 text-xl font-semibold uppercase w-full rounded-full"
-            // onClick={onClaimClicked}
-          >
+            onClick={onClaimClicked}>
             Claim
           </button>
         </div>
