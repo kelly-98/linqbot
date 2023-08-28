@@ -108,7 +108,7 @@ export default function Header() {
           className={({ isActive }) =>
             isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
           }
-          to="#"
+          to="mailto:dev@linqbot.org"
           target="_blank"
           rel="noopener noreferrer">
           Contact Us

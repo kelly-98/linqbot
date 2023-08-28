@@ -57,23 +57,25 @@ export default function Pool() {
         </div>
         <p className="text-lg">Forging a Connected Tomorrow and Beyond.</p>
         <ul className="flex flex-col justify-center gap-6 my-8 lg:flex-row">
-          <a className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
+          <a
+            href="https://app.uniswap.org/#/swap?outputCurrency=0x192f4bef2b35ebe109d35ad5899665573ccb0978&chain=ethereum"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
             <span>Buy</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
-            >
+              fill="none">
               <mask
                 id="mask0_4_149"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24"
-              >
+                height="24">
                 <rect y="3.05176e-05" width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_149)">
@@ -91,16 +93,14 @@ export default function Pool() {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
-            >
+              fill="none">
               <mask
                 id="mask0_4_185"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24"
-              >
+                height="24">
                 <rect y="3.05176e-05" width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_185)">
@@ -115,24 +115,21 @@ export default function Pool() {
             href="https://t.me/Linq_App_Bot"
             target="_blank"
             rel="noopener noreferrer"
-            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl"
-          >
+            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
             <span>bot</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
-            >
+              fill="none">
               <mask
                 id="mask0_4_191"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24"
-              >
+                height="24">
                 <rect width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_191)">
@@ -147,24 +144,21 @@ export default function Pool() {
             className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl"
             href="https://linqbot.gitbook.io/docs/"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <span>docs</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none"
-            >
+              fill="none">
               <mask
                 id="mask0_4_116"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24"
-              >
+                height="24">
                 <rect width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_116)">
