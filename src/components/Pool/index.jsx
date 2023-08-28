@@ -91,7 +91,11 @@ export default function Pool() {
               </g>
             </svg>
           </a>
-          <a className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
+          <a
+            href="https://www.dextools.io/app/en/ether/pair-explorer/0xbe0dc39bc50cda56c2db71ac7737b0f19d006c1a"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
             <span>Chart</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
