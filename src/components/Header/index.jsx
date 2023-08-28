@@ -98,6 +98,12 @@ export default function Header() {
           Chart
         </NavLink>
         <NavLink
+          to="https://t.me/LinQPoolBot"
+          target="_blank"
+          rel="noopener noreferrer">
+          Bot
+        </NavLink>
+        <NavLink
           to="https://linqpool.gitbook.io/docs/"
           target="_blank"
           rel="noopener noreferrer">
