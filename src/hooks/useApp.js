@@ -7,6 +7,10 @@ const useApp = () => {
   const { account, chainId } = useWeb3React();
 
   const getTotalDividendsDistributed = useCallback(async () => {
+    if (!account) {
+      return;
+    }
+
     const provider = new ethers.providers.JsonRpcProvider(
       process.env.REACT_APP_RPC_URL
     );
@@ -31,9 +35,9 @@ const useApp = () => {
       provider
     );
 
-    const dividendTrackerAddress = await contract.dividendTracker();
+    // const dividendTrackerAddress = await contract.dividendTracker();
 
-    const amount = await contract.dividendTokenBalanceOf(dividendTrackerAddress);
+    const amount = await contract.withdrawableDividendOf(account);
     return +ethers.utils.formatUnits(amount, 18);
   }, [account, chainId]);
 
@@ -53,7 +57,6 @@ const useApp = () => {
     dividendTokenBalanceOf,
     getTotalDividendsDistributed,
     claim,
-
   };
 };
 
