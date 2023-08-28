@@ -13,9 +13,9 @@ function App() {
     <div className="app" lang="en-US">
       <div className="container">
         <Header />
-        <Intro />
+        {/* <Intro /> */}
         <Pool />
-        <Community />
+        {/* <Community /> */}
       </div>
       <Footer />
     </div>

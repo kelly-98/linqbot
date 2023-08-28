@@ -88,48 +88,46 @@ export default function Header() {
     : null;
   return (
     <header className="header flex-col gap-5 lg:flex-row">
-      <div className="header-left">
-        <div className="header-logo">
-          <img src={HeaderLogo} alt="header-logo" />
-        </div>
-        <ul className="header-menu">
-          <li className="header-menu-item">
-            <a
-              className="header-menu-link"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Staking
-            </a>
-          </li>
-          <li className="header-menu-item">
-            <a
-              className="header-menu-link"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              How It Works
-            </a>
-          </li>
-          <li className="header-menu-item">
-            <a
-              className="header-menu-link"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contract
-            </a>
-          </li>
-          <div class="load-icon loading">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </ul>
+      <div className="header-logo">
+        <img src={HeaderLogo} alt="header-logo" />
       </div>
+      <ul className="header-menu">
+        <li className="header-menu-item">
+          <a
+            className="header-menu-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Staking
+          </a>
+        </li>
+        <li className="header-menu-item">
+          <a
+            className="header-menu-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            How It Works
+          </a>
+        </li>
+        <li className="header-menu-item">
+          <a
+            className="header-menu-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contract
+          </a>
+        </li>
+        <div class="load-icon loading">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </ul>
       <button
         // onClick={connectButtonClicked}
         className="btn btn-primary font-semibold"
