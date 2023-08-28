@@ -97,7 +97,10 @@ export default function Header() {
         <NavLink to="#" target="_blank" rel="noopener noreferrer">
           Chart
         </NavLink>
-        <NavLink to="#" target="_blank" rel="noopener noreferrer">
+        <NavLink
+          to="https://linqpool.gitbook.io/docs/"
+          target="_blank"
+          rel="noopener noreferrer">
           Docs
         </NavLink>
         {/* <div class="load-icon loading">
