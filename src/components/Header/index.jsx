@@ -90,7 +90,10 @@ export default function Header() {
       </div>
       <ul className="text-black items-center flex justify-center gap-5 lg:gap-10">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="#" target="_blank" rel="noopener noreferrer">
+        <NavLink
+          to="https://app.uniswap.org/#/tokens/ethereum/0x8b9a53321ee0f6aa1bea3a26a231cac6386ba777"
+          target="_blank"
+          rel="noopener noreferrer">
           Buy
         </NavLink>
 

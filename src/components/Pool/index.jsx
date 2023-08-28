@@ -42,9 +42,9 @@ export default function Pool() {
     }
   };
 
-  // useEffect(() => {
-  //   getData();
-  // }, [account, chainId, reload]);
+  useEffect(() => {
+    getData();
+  }, [account, chainId, reload]);
 
   return (
     <section className="w-full py-5 flex justify-center items-center text-center">
@@ -56,6 +56,8 @@ export default function Pool() {
         <p className="text-lg mt-5">
           Fostering a Hybrid Future: Pioneering the Blueprint for an
           Interconnected Tomorrow.
+          <br />
+          0x8b9a53321ee0f6aa1bea3a26a231cac6386ba777
         </p>
 
         <div className="bg-white my-10 max-w-xl mx-auto p-5 rounded-xl lg:px-8 lg:py-14">
@@ -72,8 +74,7 @@ export default function Pool() {
           <div className="flex justify-start">
             <button
               className="btn-primary mt-12 py-3 px-5 text-xl font-semibold uppercase"
-              // onClick={onClaimClicked}
-            >
+              onClick={onClaimClicked}>
               Claim
             </button>
           </div>
