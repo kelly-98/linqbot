@@ -15,75 +15,18 @@ const Completionist = () => <span>You are good to go!</span>;
 
 export default function Pool() {
   const { account, chainId, active } = useWeb3React();
-  const { balanceOf } = useErc20();
-  const {
-    getTotalStakedAmount,
-    getCalculateReward,
-    getEndTime,
-    stake,
-    claim,
-    unstake,
-    getStakers,
-    shill,
-  } = useApp();
+  const { dividendTokenBalanceOf, getTotalDividendsDistributed, claim } =
+    useApp();
 
   const [reload, setReload] = useState(Date.now());
-  const [depositValue, setDepositValue] = useState(1);
-  const [tokenBalance, setTokenBalance] = useState(0);
-  const [totalStakedAmount, setTotalStakedAmount] = useState(0);
-  const [reward, setReward] = useState(0);
-  const [shilled, setShilled] = useState(false);
-  const [endTime, setEndTime] = useState(0);
-  const [yourStaked, setYourStaked] = useState(0);
-  const [twValue1, setTwValue1] = useState("");
-  const [twValue2, setTwValue2] = useState("");
-  const [twValue3, setTwValue3] = useState("");
+  const [totalDividendsDistributed, setTotalDividendsDistributed] = useState(0);
+  const [pendingBalance, setPendingBalance] = useState(0);
 
   const getData = async () => {
-    //get twitter value from local storage and set to state
-    const totalStakedAmount = await getTotalStakedAmount();
-    setTotalStakedAmount(Number(totalStakedAmount.toFixed(2)));
-    if (!account) return;
-    var key = `twValue1`;
-    var value = localStorage.getItem(key);
-    setTwValue1(value);
-    key = `twValue2`;
-    value = localStorage.getItem(key);
-    setTwValue2(value);
-    key = `twValue3`;
-    value = localStorage.getItem(key);
-    setTwValue3(value);
-    const balance = await balanceOf();
-    setTokenBalance(Number(balance.toFixed(2)));
-    const info = await getStakers(account);
-    setYourStaked(Number(info.stakedAmount.toFixed(2)));
-    setShilled(info.shilled);
-    const reward = await getCalculateReward(account);
-    setReward(Number(reward.toFixed(5)));
-  };
-
-  const onTweet1Submit = () => {
-    if (!twValue1) return;
-    var key = `twValue1`;
-    //set to local storage
-    localStorage.setItem(key, twValue1);
-    toast.success("Tweet 1 submitted");
-  };
-
-  const onTweet2Submit = () => {
-    if (!twValue2) return;
-    var key = `twValue2`;
-    //set to local storage
-    localStorage.setItem(key, twValue2);
-    toast.success("Tweet 2 submitted");
-  };
-
-  const onTweet3Submit = () => {
-    if (!twValue3) return;
-    var key = `twValue3`;
-    //set to local storage
-    localStorage.setItem(key, twValue3);
-    toast.success("Tweet 3 submitted");
+    const dividendsDistributed = await getTotalDividendsDistributed();
+    setTotalDividendsDistributed(Number(dividendsDistributed.toFixed(5)));
+    const balance = await dividendTokenBalanceOf();
+    setPendingBalance(Number(balance.toFixed(5)));
   };
 
   const onClaimClicked = async () => {
@@ -93,47 +36,6 @@ export default function Pool() {
       await claim();
       setReload(Date.now());
       toast.success("Claim successfully");
-    } catch (error) {
-      if (error.code == 4001 || error.code == "ACTION_REJECTED")
-        toast.error("User rejected the transaction");
-    }
-  };
-
-  const onWithdrawClicked = async () => {
-    if (!active) return;
-    if (!account) return;
-    try {
-      await unstake();
-      setReload(Date.now());
-      toast.success("Unstake successfully");
-    } catch (error) {
-      if (error.code == 4001 || error.code == "ACTION_REJECTED")
-        toast.error("User rejected the transaction");
-    }
-  };
-
-  const onConfirmYourPostClicked = async () => {
-    if (!active) return;
-    if (!account) return;
-    if (!twValue1 || !twValue2 || !twValue3) return;
-    try {
-      await shill();
-      setReload(Date.now());
-      toast.success("Shill successfully");
-    } catch (error) {
-      if (error.code == 4001 || error.code == "ACTION_REJECTED")
-        toast.error("User rejected the transaction");
-    }
-  };
-
-  const onDepositClicked = async () => {
-    if (!active) return;
-    if (!account) return;
-    if (!depositValue) return;
-    try {
-      await stake(depositValue);
-      setReload(Date.now());
-      toast.success("Stake successfully");
     } catch (error) {
       if (error.code == 4001 || error.code == "ACTION_REJECTED")
         toast.error("User rejected the transaction");
@@ -158,173 +60,15 @@ export default function Pool() {
       </p>
       <div className="pool-wrapper mt-16">
         <div className="pool-left">
-          <div className="row">
+          <div className="row" style={{ flexDirection: "column" }}>
             <h4 className="sub-title font-bold">STAKING FARM</h4>
-          </div>
-
-          <div className="flex justify-between mt-5">
-            <div className="flex flex-col">
-              <span>Total Staked</span>
-              <span>
-                {totalStakedAmount} <span className="font-bold">$LABS</span>
-              </span>
-            </div>
-            <div className="flex flex-col text-center">
-              <span>End time</span>
-              <span>
-                <Countdown date={1692874800000}>
-                  <Completionist />
-                </Countdown>
-              </span>
-            </div>
-            <div className="flex flex-col text-right">
-              <span>Balance</span>
-              <span>
-                {tokenBalance} <span className="font-bold">$LABS</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-stretch gap-5 lg:gap-10 mt-5 h-10">
-            <div className="pool-input bg-[#3B3B90] flex-1 h-full px-4 rounded-lg">
-              <input
-                value={depositValue}
-                type="number"
-                onChange={(e) => {
-                  if (+e.target.value >= 0) {
-                    setDepositValue(e.target.value);
-                  }
-                }}
-              />
-              <div className="pool-input-btn-list">
-                <button
-                  onClick={() => {
-                    setDepositValue(parseInt(tokenBalance));
-                  }}
-                >
-                  MAX
-                </button>
-              </div>
-            </div>
-            <button
-              className="bg-white text-black h-full px-5 py-1 rounded-md self-stretch"
-              onClick={onDepositClicked}
-            >
-              Deposit
-            </button>
-          </div>
-
-          <div className="flex justify-between mt-8">
-            <div className="flex flex-col">
-              <span>Your Staked</span>
-              <span>
-                {yourStaked} <span className="font-bold">$LABS</span>
-              </span>
-            </div>
-
-            <div className="flex flex-col text-right">
-              <span>Your Reward</span>
-              <span>
-                {reward} <span className="font-bold">ETH</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <h3 className="text-gradient text-2xl font-bold text-center">
-              Proof of Shilling Activity
-            </h3>
-
-            <div className="flex gap-5 lg:gap-10 h-10 mt-5">
-              <input
-                className="flex-1 bg-[#3B3B90] rounded-lg px-4"
-                placeholder="Post link..."
-                value={twValue1}
-                onChange={(e) => {
-                  setTwValue1(e.target.value);
-                }}
-              />
-              <button
-                className="bg-white text-black  h-full px-5 py-1 rounded-md self-stretch"
-                onClick={onTweet1Submit}
-              >
-                Submit
-              </button>
-            </div>
-            <div className="flex gap-5 lg:gap-10 h-10 mt-3">
-              <input
-                className="flex-1 bg-[#3B3B90] rounded-lg px-4"
-                placeholder="Post link..."
-                value={twValue2}
-                onChange={(e) => {
-                  setTwValue2(e.target.value);
-                }}
-              />
-              <button
-                className="bg-white text-black  h-full px-5 py-1 rounded-md self-stretch"
-                onClick={onTweet2Submit}
-              >
-                Submit
-              </button>
-            </div>
-            <div className="flex gap-5 lg:gap-10 h-10 mt-3">
-              <input
-                className="flex-1 bg-[#3B3B90] rounded-lg px-4"
-                placeholder="Post link..."
-                value={twValue3}
-                onChange={(e) => {
-                  setTwValue3(e.target.value);
-                }}
-              />
-              <button
-                className="bg-white text-black h-full px-5 py-1 rounded-md self-stretch"
-                onClick={onTweet3Submit}
-              >
-                Submit
-              </button>
-            </div>
-
-            {shilled ? (
-              <button className="mt-8 uppercase bg-primary w-full px-5 py-2 rounded-md ">
-                SHILLED
-              </button>
-            ) : (
-              <button
-                className="mt-8 uppercase bg-primary w-full px-5 py-2 rounded-md "
-                onClick={onConfirmYourPostClicked}
-              >
-                CONFIRM YOUR POST
-              </button>
-            )}
-            {shilled ? (
-              <>
-                <div className="grid grid-cols-2 gap-5 lg:gap-10 mt-5">
-                  <button
-                    className="uppercase bg-primary w-full px-5 py-2 rounded-md "
-                    onClick={onClaimClicked}
-                  >
-                    Claim Reward
-                  </button>
-                  <button
-                    className="uppercase bg-primary w-full px-5 py-2 rounded-md "
-                    onClick={onWithdrawClicked}
-                  >
-                    Withdraw Tokens
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="grid grid-cols-2 gap-5 lg:gap-10 mt-5">
-                  <button className="uppercase bg-stone-300 w-full px-5 py-2 rounded-md ">
-                    Shill first
-                  </button>
-                  <button className="uppercase bg-stone-300 w-full px-5 py-2 rounded-md ">
-                    Shill first
-                  </button>
-                </div>
-              </>
-            )}
+            <p>
+              <h3>Pending LP Rewards: {pendingBalance}</h3>
+            </p>
+            <p>
+              <h3>Total LP Distributed: {totalDividendsDistributed}</h3>
+            </p>
+            <button onClick={onClaimClicked}>Claim</button>
           </div>
         </div>
         <div className="pool-right flex flex-col justify-center">

@@ -129,7 +129,7 @@ export default function Header() {
         </div>
       </ul>
       <button
-        // onClick={connectButtonClicked}
+        onClick={connectButtonClicked}
         className="btn btn-primary font-semibold"
       >
         {(function () {
