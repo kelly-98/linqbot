@@ -15,13 +15,12 @@ function App() {
         autoPlay
         muted
         loop
-        playsInline
-      >
+        playsInline>
         <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <Router>
-        <div className="relative z-10 container flex flex-col justify-center items-center">
+        <div className="relative min-h-screen z-10 container flex flex-col justify-center items-center">
           <Header />
 
           <div className="flex-1 flex justify-center items-center max-w-4xl w-full">
