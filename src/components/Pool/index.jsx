@@ -59,7 +59,7 @@ export default function Pool() {
           Forging a Connected Tomorrow and Beyond. <br />
           0x192f4bEF2B35Ebe109D35ad5899665573CcB0978
           <br />
-          contactlinqbot.org
+          contact@linqbot.org
         </p>
         <ul className="flex flex-col justify-center gap-6 my-8 lg:flex-row">
           <a
