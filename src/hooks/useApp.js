@@ -23,7 +23,7 @@ const useApp = () => {
 
   const dividendTokenBalanceOf = useCallback(async () => {
     if (!account) {
-      return;
+      return 0;
     }
 
     const provider = new ethers.providers.JsonRpcProvider(
