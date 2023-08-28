@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 
 // import PoolRightImg from "../../assets/image/eth-2.svg";
 
-import Home from "../../assets/image/home.png";
+import Home from "../../assets/image/GIF.gif";
 
 import useApp from "../../hooks/useApp";
 import "./style.scss";
@@ -42,9 +42,9 @@ export default function Pool() {
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, [account, chainId, reload]);
+  // useEffect(() => {
+  //   getData();
+  // }, [account, chainId, reload]);
 
   return (
     <section className="w-full py-5 flex justify-center items-center text-center">
@@ -111,7 +111,12 @@ export default function Pool() {
               </g>
             </svg>
           </a>
-          <a className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
+          <a
+            href="https://t.me/Linq_App_Bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl"
+          >
             <span>bot</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +188,7 @@ export default function Pool() {
           </div>
           <button
             className="btn-primary py-3 text-xl font-semibold uppercase w-full rounded-full"
-            onClick={onClaimClicked}
+            // onClick={onClaimClicked}
           >
             Claim
           </button>

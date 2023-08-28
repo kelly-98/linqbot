@@ -4,16 +4,12 @@ import ds from "../../assets/image/ds.svg";
 import dextools from "../../assets/image/dextools.svg";
 import scout from "../../assets/image/scout.svg";
 import cmc from "../../assets/image/cmc.svg";
-import Bg from "../../assets/image/bg.svg";
 
 import "./style.scss";
 
 function Community() {
   return (
     <div className="pt-[100px] relative">
-      <div className="absolute -top-72 -left-1/4">
-        <img src={Bg} alt="" />
-      </div>
       <h3 className="text-gradient text-center text-2xl uppercase font-bold relative">
         Our trusted supporters
       </h3>
