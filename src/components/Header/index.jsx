@@ -5,12 +5,13 @@ import HeaderLogo from "../../assets/image/small-logo.png";
 import Logo from "../../assets/image/logo.png";
 import useAuth from "../../hooks/useAuth";
 import { setupNetwork, switchNetwork } from "../../wallet/ethereum";
-// import BSCMiner from "../../assets/docs/BSCMiner-WPP.pdf";
 
-import "./style.scss";
 import { toast } from "react-hot-toast";
 import useErc20 from "../../hooks/useERC20";
 import { useEffect } from "react";
+
+import "./style.scss";
+import { NavLink } from "react-router-dom";
 
 function Modal({ children, shown, close }) {
   return shown ? (
@@ -87,50 +88,47 @@ export default function Header() {
     ? `${account.substring(0, 5)}...${account.substring(account.length - 4)}`
     : null;
   return (
-    <header className="header flex-col gap-5 lg:flex-row">
+    <header className="w-full flex item-center justify-between py-10 flex-col gap-5 lg:flex-row">
       <div className="header-logo">
         <img src={HeaderLogo} alt="header-logo" />
       </div>
-      <ul className="header-menu">
-        <li className="header-menu-item">
-          <a
-            className="header-menu-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Staking
-          </a>
-        </li>
-        <li className="header-menu-item">
-          <a
-            className="header-menu-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            How It Works
-          </a>
-        </li>
-        <li className="header-menu-item">
-          <a
-            className="header-menu-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contract
-          </a>
-        </li>
-        <div class="load-icon loading">
+      <ul className="flex justify-center gap-5 border-[1px] border-[#9AF3FA] py-4 px-5 rounded-full lg:gap-10 lg:px-10">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
+          }
+          to="/about"
+        >
+          About
+        </NavLink>
+
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
+          }
+          to="https://min.text"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contact Us
+        </NavLink>
+        {/* <div class="load-icon loading">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </div> */}
       </ul>
       <button
         onClick={connectButtonClicked}
-        className="btn btn-primary font-semibold"
+        className="btn justify-center btn-primary font-semibold uppercase text-center py-4"
       >
         {(function () {
           if (active) {

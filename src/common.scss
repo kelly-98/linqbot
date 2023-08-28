@@ -133,8 +133,8 @@ button {
 body {
   overflow-x: hidden;
   font-size: 16px;
-  font-family: "Inter", sans-serif;
   background-color: #1c2259;
+  font-family: "Poppins", sans-serif;
   @media screen and (max-width: 700px) {
     font-size: 15px;
   }
@@ -247,8 +247,8 @@ a {
 }
 
 .btn {
-  padding: 14px 25px;
-  border-radius: 5px;
+  padding: 18px 25px;
+  border-radius: 36px;
   font-size: 16px;
   display: inline-flex;
   justify-content: space-between;
@@ -260,12 +260,9 @@ a {
   @media screen and (max-width: 1250px) {
     padding: 10px;
   }
-  @media screen and (max-width: 550px) {
-    font-size: 13px;
-  }
+
   @media screen and (max-width: 450px) {
     padding: 8px;
-    font-size: 12px;
   }
   &-small {
     padding: 8px 15px !important;
@@ -288,7 +285,9 @@ a {
 }
 
 .btn-primary {
-  background-color: #35c0fc;
+  background-color: #1cabc8;
+  background: linear-gradient(90deg, #1cabc8 0%, #45e5f0 100%);
+  color: #1e1e1e;
 }
 
 .btn-secondary {
@@ -336,7 +335,6 @@ a {
 }
 
 .app {
-  background-color: #1c2259;
   color: #fff;
   min-height: 100vh;
   width: 100%;
