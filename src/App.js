@@ -33,9 +33,11 @@ function App() {
       login();
     }
   };
+
   const accountEllipsis = account
     ? `${account.substring(0, 5)}...${account.substring(account.length - 4)}`
     : null;
+
   return (
     <div className="app min-h-screen relative" lang="en-US">
       <Router>
@@ -91,6 +93,7 @@ function App() {
                 <span>Twitter</span>
               </Link>
             </div>
+
             <div className="w-full flex justify-center items-center lg:w-[90%]">
               <div className="flex justify-center items-center max-w-5xl">
                 <Routes>
@@ -105,6 +108,7 @@ function App() {
               </div>
             </div>
           </div>
+
           <div className="bg-[#c3c3c3] p-2">
             <div className="flex gap-2 lg:gap-5">
               <a>
