@@ -10,6 +10,7 @@ import folder from "./assets/image/folder.png";
 import start from "./assets/image/start.png";
 import connect from "./assets/image/connect.png";
 import disconnect from "./assets/image/disconnect.png";
+import clock from "./assets/image/clock.png";
 
 import "./common.scss";
 import Analytics from "./components/Analytics";
@@ -109,7 +110,7 @@ function App() {
             </div>
           </div>
 
-          <div className="bg-[#c3c3c3] p-2">
+          <div className="bg-[#c3c3c3] p-2 flex justify-between">
             <div className="flex gap-2 lg:gap-5">
               <a>
                 <img className="h-10 lg:h-14" src={start} alt="" />
@@ -137,6 +138,9 @@ function App() {
               <button onClick={logout}>
                 <img className="h-10 lg:h-14" src={disconnect} alt="" />
               </button>
+            </div>
+            <div className="hidden lg:block">
+              <img className="h-10 lg:h-14" src={clock} alt="" />
             </div>
           </div>
         </div>
