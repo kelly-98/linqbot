@@ -132,7 +132,7 @@ function App() {
                 })()}
                 {/* 0x99999 */}
               </button>
-              <button>
+              <button onClick={logout}>
                 <img className="h-10 lg:h-14" src={disconnect} alt="" />
               </button>
             </div>
