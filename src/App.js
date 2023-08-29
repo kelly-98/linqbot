@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Claim from "./components/Claim";
-import About from "./components/About";
 import Home from "./components/Home";
 import homeIcon from "./assets/image/home.png";
 import claimIcon from "./assets/image/claim.png";
@@ -11,8 +10,7 @@ import folder from "./assets/image/folder.png";
 import start from "./assets/image/start.png";
 import connect from "./assets/image/connect.png";
 import disconnect from "./assets/image/disconnect.png";
-import clock from "./assets/image/clock.png";
-import calc from "./assets/image/calc.png";
+
 import "./common.scss";
 import Analytics from "./components/Analytics";
 

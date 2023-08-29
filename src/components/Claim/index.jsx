@@ -43,9 +43,9 @@ export default function Claim() {
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, [account, chainId, reload]);
+  // useEffect(() => {
+  //   getData();
+  // }, [account, chainId, reload]);
 
   return (
     <section className="relative">
@@ -77,7 +77,10 @@ export default function Claim() {
           <span>...</span>
         </div>
         <div className="flex justify-center mt-3">
-          <button className="relative w-40">
+          <button
+            className="relative w-40"
+            // onClick={onClaimClicked}
+          >
             <img className="" src={btn} alt="" />
             <span className="underline absolute top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 text-black text-xl">
               Claim
