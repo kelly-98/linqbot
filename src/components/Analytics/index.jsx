@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import windowBg from "../../assets/image/window-2.png";
 
 export default function Analytics() {
+  const [price, setPrice] = useState(0);
+  const [liquidity, setLiquidity] = useState(0);
+  // useEffect(() => {
+  //   fetch("http://localhost:3001/").then(async (res) => {
+  //     const body = await res.json();
+  //     setPrice(body.tokenPrice);
+  //     setLiquidity(body.poolPrice);
+  //   });
+  // }, []);
   return (
     <section className="relative">
       <img className="hidden lg:block" src={windowBg} alt="" />
@@ -18,11 +27,11 @@ export default function Analytics() {
 
         <div className="py-2 text-center flex flex-col justify-center claim-border-bottom text-black">
           <span className="font-title">$WLinq Price</span>
-          <span>Fetching...</span>
+          <span>${price}</span>
         </div>
         <div className="py-2 text-center flex flex-col justify-center claim-border-bottom text-black">
           <span className="font-title">Liquidity</span>
-          <span>Fetching...</span>
+          <span>${liquidity.toLocaleString()}</span>
         </div>
       </div>
     </section>
