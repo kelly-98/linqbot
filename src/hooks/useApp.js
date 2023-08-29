@@ -38,9 +38,7 @@ const useApp = () => {
     // const dividendTrackerAddress = await contract.dividendTracker();
 
     const info = await contract.getAccountInfo(account);
-    console.log(info);
-    const amount = info[1];
-    return +ethers.utils.formatUnits(amount, 18);
+    return { claimable: +ethers.utils.formatUnits(info[1], 18), total: +ethers.utils.formatUnits(info[2], 18) };
   }, [account, chainId]);
 
   const claim = useCallback(async () => {

@@ -18,23 +18,11 @@ export default function Analytics() {
 
         <div className="py-2 text-center flex flex-col justify-center claim-border-bottom text-black">
           <span className="font-title">$WLinq Price</span>
-          <span>...</span>
+          <span>Fetching...</span>
         </div>
         <div className="py-2 text-center flex flex-col justify-center claim-border-bottom text-black">
           <span className="font-title">Liquidity</span>
-          <span>...</span>
-        </div>
-        <div className="py-2 text-center flex flex-col justify-center claim-border-bottom text-black">
-          <span className="font-title">Total LP Rewards</span>
-          <span>...</span>
-        </div>
-        <div className="py-2 text-center flex flex-col justify-center claim-border-bottom text-black">
-          <span className="font-title">Total Staking</span>
-          <span>...</span>
-        </div>
-        <div className="py-2 text-center flex flex-col justify-center claim-border-bottom text-black">
-          <span className="font-title">Total Staking Rewards</span>
-          <span>...</span>
+          <span>Fetching...</span>
         </div>
       </div>
     </section>

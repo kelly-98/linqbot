@@ -4,7 +4,7 @@ import erc20Abi from "../utils/erc20";
 import { useWeb3React } from "@web3-react/core";
 
 const useErc20 = () => {
-  const tokenContractAddress = "0x7AAecF9bC7E0783A1Bdacd195924256F1806cbcD";
+  const tokenContractAddress = "0x192f4bEF2B35Ebe109D35ad5899665573CcB0978";
   const { account, chainId } = useWeb3React();
 
   const balanceOf = useCallback(async () => {
@@ -16,7 +16,8 @@ const useErc20 = () => {
       provider.getSigner()
     );
     const balance = await tokenContract.balanceOf(account);
-    return +ethers.utils.formatUnits(balance, "9");
+    const decimals = await tokenContract.decimals();
+    return +ethers.utils.formatUnits(balance, Number(decimals));
   }, [account, chainId]);
 
   const approve = useCallback(
