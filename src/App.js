@@ -16,7 +16,28 @@ import calc from "./assets/image/calc.png";
 import "./common.scss";
 import Analytics from "./components/Analytics";
 
+import useAuth from "./hooks/useAuth";
+import { useWeb3React } from "@web3-react/core";
+
+import { switchNetwork } from "./wallet/ethereum";
+
 function App() {
+  const { login, logout } = useAuth();
+  const { account, active, chainId } = useWeb3React();
+
+  const connectButtonClicked = async () => {
+    if (active) {
+      if (chainId !== Number(process.env.REACT_APP_CHAIN_ID)) {
+        // await setupNetwork();
+        await switchNetwork(process.env.REACT_APP_CHAIN_ID_HEX);
+      }
+    } else {
+      login();
+    }
+  };
+  const accountEllipsis = account
+    ? `${account.substring(0, 5)}...${account.substring(account.length - 4)}`
+    : null;
   return (
     <div className="app min-h-screen relative" lang="en-US">
       <Router>
@@ -92,8 +113,23 @@ function App() {
                 <img className="h-10 lg:h-14" src={start} alt="" />
               </a>
               {/* connect add class => btn-connect  px-5 in button */}
-              <button className="flex items-center">
-                <img className="h-10 lg:h-14" src={connect} alt="" />
+              <button
+                className={`flex items-center ${
+                  active ? "btn-connect  px-5" : ""
+                }`}
+                onClick={connectButtonClicked}
+              >
+                {(function () {
+                  if (active) {
+                    return chainId !== Number(process.env.REACT_APP_CHAIN_ID)
+                      ? "Switch network"
+                      : accountEllipsis;
+                  } else {
+                    return (
+                      <img className="h-10 lg:h-14" src={connect} alt="" />
+                    );
+                  }
+                })()}
                 {/* 0x99999 */}
               </button>
               <button>
