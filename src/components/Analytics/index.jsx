@@ -5,13 +5,13 @@ import windowBg from "../../assets/image/window-2.png";
 export default function Analytics() {
   const [price, setPrice] = useState(0);
   const [liquidity, setLiquidity] = useState(0);
-  // useEffect(() => {
-  //   fetch("http://localhost:3001/").then(async (res) => {
-  //     const body = await res.json();
-  //     setPrice(body.tokenPrice);
-  //     setLiquidity(body.poolPrice);
-  //   });
-  // }, []);
+  useEffect(() => {
+    fetch("https://api.wlinq.com/").then(async (res) => {
+      const body = await res.json();
+      setPrice(body.tokenPrice);
+      setLiquidity(body.poolPrice);
+    });
+  }, []);
   return (
     <section className="relative">
       <img className="hidden lg:block" src={windowBg} alt="" />

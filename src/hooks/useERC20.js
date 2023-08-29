@@ -4,7 +4,7 @@ import erc20Abi from "../utils/erc20";
 import { useWeb3React } from "@web3-react/core";
 
 const useErc20 = () => {
-  const tokenContractAddress = "0x192f4bEF2B35Ebe109D35ad5899665573CcB0978";
+  const tokenContractAddress = "0xFb596FAc783C2169973FF38F2139C1C0E5254B36";
   const { account, chainId } = useWeb3React();
 
   const balanceOf = useCallback(async () => {

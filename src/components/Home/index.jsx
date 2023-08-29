@@ -17,10 +17,14 @@ export default function Home() {
         </p>
         <p className="text-black mt-8">
           <span className="font-bold font-title">Contract: </span>{" "}
-          <span>0x000000000000000000000000000000000000000</span>
+          <span>0xFb596FAc783C2169973FF38F2139C1C0E5254B36</span>
         </p>
-        <a className="mt-8 block text-[#0038ff] underline">BUY LINK</a>
-        <a className="block mt-3 text-[#0038ff] underline">CHART LINK</a>
+        <p className="text-black mt-8">
+          <span className="font-bold font-title">Email: </span>{" "}
+          <span>contact@wlinq.com</span>
+        </p>
+        <a className="mt-8 block text-[#0038ff] underline" href="https://app.uniswap.org/#/tokens/ethereum/0xfb596fac783c2169973ff38f2139c1c0e5254b36">BUY LINK</a>
+        <a className="block mt-3 text-[#0038ff] underline" href="https://www.dextools.io/app/en/ether/pair-explorer/0x901f40d2337977c13ae9477e569022fbecf443fc">CHART LINK</a>
       </div>
     </section>
   );
