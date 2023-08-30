@@ -1,16 +1,11 @@
 import React, { useEffect, useState, useCallback } from "react";
-import Countdown from "react-countdown";
 import { toast } from "react-hot-toast";
-
-// import PoolRightImg from "../../assets/image/eth-2.svg";
-
-import Home from "../../assets/image/GIF.gif";
+import { useWeb3React } from "@web3-react/core";
 
 import useApp from "../../hooks/useApp";
-import "./style.scss";
-import { useWeb3React } from "@web3-react/core";
 import useErc20 from "../../hooks/useERC20";
-import { ethers } from "ethers";
+
+import "./style.scss";
 
 export default function Pool() {
   const { account, chainId, active } = useWeb3React();
@@ -64,28 +59,28 @@ export default function Pool() {
     getTotalSupply();
   }, []);
 
-  useEffect(() => {
-    getData();
-  }, [account, chainId, reload]);
+  // useEffect(() => {
+  //   getData();
+  // }, [account, chainId, reload]);
 
   return (
     <section className="w-full py-5 flex justify-center items-center text-center">
       <div className="w-full">
         <h2 className="text-3xl font-bold lg:text-4xl">
-          WELCOME TO $BLAZE BURNT
+          WELCOME TO $HAWAII BURNT
         </h2>
 
         <p className="text-lg">
-          0x806BE8f7068604FC77bdd8B0d3b58E46b6282DC2
+          0x0000000000000000000
           <br />
-          contact@blazeburnt.app
+          contact@hawaiiburnt.com
         </p>
 
-        <div className="border-[1px] my-10 border-[#B94300] bg-black/70 max-w-4xl mx-auto p-5 rounded-xl lg:p-8">
+        <div className="border-[1px] my-10 border-[#0094FF] bg-black/70 max-w-4xl mx-auto p-5 rounded-xl lg:p-8">
           <div className="flex justify-between pb-8">
             <h3 className="text-xl font-bold">TokenBalance: </h3>
             <p className="flex gap-3">
-              <span>{balance}</span> <span className="font-bold">$BLAZE</span>
+              <span>{balance}</span> <span className="font-bold">$HBURNT</span>
             </p>
           </div>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
@@ -94,16 +89,16 @@ export default function Pool() {
               <p className="flex justify-between">
                 <div>
                   <span>{stats.totalBurned ?? 0}</span>{" "}
-                  {stats.totalBurned ? (
+                  {/* {stats.totalBurned ? (
                     <span>
                       ({((stats.totalBurned * 100) / 100000000).toFixed(2)}
                       %)
                     </span>
                   ) : (
                     ""
-                  )}
+                  )} */}
                 </div>
-                <span className="font-bold">$BLAZE</span>
+                <span className="font-bold">$HBURNT</span>
               </p>
             </div>
             <div className="flex flex-col justify-between py-8 border-[1px] border-[#FF7A00] rounded-xl px-10">

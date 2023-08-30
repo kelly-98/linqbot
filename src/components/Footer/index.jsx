@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className="pb-5 flex gap-5 justify-center items-center">
       <a
-        href="https://twitter.com/BlazeBurntToken"
+        href="https://twitter.com/HawaiiBurnt"
         target="_blank"
         rel="noopener noreferrer">
         <svg
@@ -25,7 +25,7 @@ export default function Footer() {
         </svg>
       </a>
       <a
-        href="https://t.me/BlazeBurnt"
+        href="https://t.me/HawaiiBurnt"
         target="_blank"
         rel="noopener noreferrer">
         <svg

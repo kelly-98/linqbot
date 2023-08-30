@@ -84,7 +84,7 @@ export default function Header() {
     ? `${account.substring(0, 5)}...${account.substring(account.length - 4)}`
     : null;
   return (
-    <header className="w-full flex item-center justify-between py-10 flex-col gap-5 lg:flex-row">
+    <header className="w-full flex item-center justify-between py-8 flex-col gap-5 lg:flex-row">
       <div className="header-logo max-w-xs mx-auto lg:mx-0">
         <img src={HeaderLogo} alt="header-logo" />
       </div>
@@ -115,7 +115,7 @@ export default function Header() {
           //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
           // }
           className="font-bold"
-          to="https://blaze-burnt.gitbook.io/docs/"
+          // to="https://blaze-burnt.gitbook.io/docs/"
           target="_blank"
           rel="noopener noreferrer">
           DOCUMENTATIONS

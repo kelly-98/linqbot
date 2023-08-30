@@ -134,7 +134,7 @@ body {
   overflow-x: hidden;
   font-size: 16px;
   background-color: #000;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Sarabun", sans-serif;
   @media screen and (max-width: 700px) {
     font-size: 15px;
   }
@@ -172,6 +172,14 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.bg-gradient-1 {
+  background: linear-gradient(
+    142deg,
+    rgba(5, 0, 255, 0.3) 0%,
+    rgba(0, 178, 255, 0.3) 100%
+  );
 }
 
 /* Animation */
