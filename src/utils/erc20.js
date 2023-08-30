@@ -47,6 +47,7 @@ const erc20Abi = [
     },
     "function balanceOf(address _owner) public view returns (uint256 balance)",
     "function decimals() public view returns (uint8)",
+    "function totalSupply() public view returns (uint256 totalSupply)",
 ];
 
 export default erc20Abi;

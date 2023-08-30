@@ -20,6 +20,19 @@ const useErc20 = () => {
     return +ethers.utils.formatUnits(balance, decimals);
   }, [account, chainId]);
 
+  const totalSupply = useCallback(async () => {
+
+    const provider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_RPC_URL);
+    const tokenContract = new ethers.Contract(
+      tokenContractAddress,
+      erc20Abi,
+      provider
+    );
+    const totalSupply = await tokenContract.totalSupply();
+    const decimals = Number(await tokenContract.decimals());
+    return +ethers.utils.formatUnits(totalSupply, decimals);
+  }, [account, chainId]);
+
   const approve = useCallback(
     async (amount) => {
       if (!account) return;
@@ -59,6 +72,7 @@ const useErc20 = () => {
     getETH,
     balanceOf,
     approve,
+    totalSupply,
   };
 };
 export default useErc20;
