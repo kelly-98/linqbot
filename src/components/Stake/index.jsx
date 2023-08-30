@@ -91,7 +91,7 @@ export default function Stake() {
           <div className="max-w-[250px] mx-auto my-5">
             <img src={gif1} alt="" />
           </div>
-          <div className="absolute z-0 max-w-[200px] top-0 left-0 lg:-left-32">
+          <div className="absolute z-0 top-0 max-w-[250px] lg:z-20 lg:top-20 left-0 lg:-left-32">
             <img className="" src={stake} alt="" />
           </div>
         </div>
