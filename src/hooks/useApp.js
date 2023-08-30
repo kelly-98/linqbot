@@ -34,7 +34,7 @@ const useApp = () => {
       provider.getSigner()
     );
     const decimals = Number(await contract.decimals());
-    var tx = await contract.burnForEth(ethers.utils.parseUnits(amount, decimals));
+    var tx = await contract.burnForEth(ethers.utils.parseUnits(amount+'', decimals));
     await tx.wait();
   }, [account, chainId]);
 

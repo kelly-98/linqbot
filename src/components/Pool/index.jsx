@@ -35,7 +35,6 @@ export default function Pool() {
   };
 
   const onBurnClicked = async () => {
-    if (!active) return;
     if (!account) return;
     try {
       await burnForEth(100);
