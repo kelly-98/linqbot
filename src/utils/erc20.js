@@ -45,7 +45,8 @@ const erc20Abi = [
         "stateMutability": "view",
         "type": "function"
     },
-    "function balanceOf(address _owner) public view returns (uint256 balance)"
+    "function balanceOf(address _owner) public view returns (uint256 balance)",
+    "function decimals() public view returns (uint8)",
 ];
 
 export default erc20Abi;

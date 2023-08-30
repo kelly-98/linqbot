@@ -11,31 +11,36 @@ import "./style.scss";
 import { useWeb3React } from "@web3-react/core";
 import useErc20 from "../../hooks/useERC20";
 
-const Completionist = () => <span>You are good to go!</span>;
-
 export default function Pool() {
   const { account, chainId, active } = useWeb3React();
-  const { dividendTokenBalanceOf, getTotalDividendsDistributed, claim } =
-    useApp();
+  const { burnForEth, getStats } = useApp();
+  const { balanceOf } = useErc20();
 
   const [reload, setReload] = useState(Date.now());
-  const [totalDividendsDistributed, setTotalDividendsDistributed] = useState(0);
-  const [pendingBalance, setPendingBalance] = useState(0);
+  const [balance, setBalance] = useState(0);
+  const [stats, setStats] = useState({
+    totalBurned: 0,
+    totalBurnRewards: 0,
+  });
 
   const getData = async () => {
-    const dividendsDistributed = await getTotalDividendsDistributed();
-    setTotalDividendsDistributed(Number(dividendsDistributed.toFixed(5)));
-    const balance = await dividendTokenBalanceOf();
-    setPendingBalance(Number(balance.toFixed(5)));
+    const stats = await getStats();
+    setStats({
+      totalBurned: Number(stats.totalBurned.toFixed(2)),
+      totalBurnRewards: Number(stats.totalBurnRewards.toFixed(2)),
+    });
+    if (!account) return;
+    const tokenBalance = await balanceOf();
+    setBalance(Number(tokenBalance.toFixed(2)));
   };
 
-  const onClaimClicked = async () => {
+  const onBurnClicked = async () => {
     if (!active) return;
     if (!account) return;
     try {
-      await claim();
+      await burnForEth(100);
       setReload(Date.now());
-      toast.success("Claim successfully");
+      toast.success("Burn successfully!");
     } catch (error) {
       if (error.code == 4001 || error.code == "ACTION_REJECTED")
         toast.error("User rejected the transaction");
@@ -66,21 +71,24 @@ export default function Pool() {
             href="https://app.uniswap.org/#/swap?outputCurrency=0x192f4bef2b35ebe109d35ad5899665573ccb0978&chain=ethereum"
             target="_blank"
             rel="noopener noreferrer"
-            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
+            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl"
+          >
             <span>Buy</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none">
+              fill="none"
+            >
               <mask
                 id="mask0_4_149"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24">
+                height="24"
+              >
                 <rect y="3.05176e-05" width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_149)">
@@ -95,21 +103,24 @@ export default function Pool() {
             href="https://www.dextools.io/app/en/ether/pair-explorer/0xbe0dc39bc50cda56c2db71ac7737b0f19d006c1a"
             target="_blank"
             rel="noopener noreferrer"
-            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
+            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl"
+          >
             <span>Chart</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none">
+              fill="none"
+            >
               <mask
                 id="mask0_4_185"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24">
+                height="24"
+              >
                 <rect y="3.05176e-05" width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_185)">
@@ -124,21 +135,24 @@ export default function Pool() {
             href="https://t.me/Linq_App_Bot"
             target="_blank"
             rel="noopener noreferrer"
-            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl">
+            className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl"
+          >
             <span>bot</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none">
+              fill="none"
+            >
               <mask
                 id="mask0_4_191"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24">
+                height="24"
+              >
                 <rect width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_191)">
@@ -153,21 +167,24 @@ export default function Pool() {
             className="uppercase font-bold inline-flex justify-center items-center gap-2 border-[1px] border-[#9AF3FA] bg-[#73a5c233] py-3 px-5 rounded-xl"
             href="https://linqbot.gitbook.io/docs/"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             <span>docs</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              fill="none">
+              fill="none"
+            >
               <mask
                 id="mask0_4_116"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
                 width="24"
-                height="24">
+                height="24"
+              >
                 <rect width="24" height="24" fill="#D9D9D9" />
               </mask>
               <g mask="url(#mask0_4_116)">
@@ -182,17 +199,22 @@ export default function Pool() {
         <h3 className="text-lg">Claim LP Rewards</h3>
         <div className="border-[1px] my-10 border-[#9AF3FA] max-w-2xl mx-auto p-5 rounded-xl lg:p-8">
           <div className="flex justify-between pb-8 border-b-[1px] border-white">
-            <h3>Pending LP Rewards: </h3>
-            <span>{pendingBalance}</span>
+            <h3>TokenBalance: </h3>
+            <span>{balance}</span>
           </div>
           <div className="flex justify-between py-8">
-            <h3>Total LP Distributed: </h3>
-            <span>{totalDividendsDistributed}</span>
+            <h3>Total Burned: </h3>
+            <span>{stats.totalBurned ?? 0}</span>
+          </div>
+          <div className="flex justify-between py-8">
+            <h3>Total Rewards: </h3>
+            <span>{stats.totalBurnRewards ?? 0} ETH</span>
           </div>
           <button
             className="btn-primary py-3 text-xl font-semibold uppercase w-full rounded-full"
-            onClick={onClaimClicked}>
-            Claim
+            onClick={onBurnClicked}
+          >
+            Burn
           </button>
         </div>
       </div>
