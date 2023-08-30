@@ -134,7 +134,7 @@ body {
   overflow-x: hidden;
   font-size: 16px;
   background-color: #000;
-  font-family: "Poppins", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   @media screen and (max-width: 700px) {
     font-size: 15px;
   }
@@ -161,6 +161,17 @@ body {
 }
 .load-icon span:nth-of-type(3) {
   right: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* Animation */
@@ -247,8 +258,7 @@ a {
 }
 
 .btn {
-  padding: 18px 25px;
-  border-radius: 36px;
+  padding: 15px 25px;
   font-size: 16px;
   display: inline-flex;
   justify-content: space-between;
@@ -285,8 +295,8 @@ a {
 }
 
 .btn-primary {
-  background-color: #1cabc8;
-  background: linear-gradient(90deg, #1cabc8 0%, #45e5f0 100%);
+  background: #fc7100;
+  background: linear-gradient(136deg, #ff5c00 0%, #ff8a00 100%);
   color: #1e1e1e;
 }
 

@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Pool from "./components/Pool";
 import Footer from "./components/Footer";
 import "./common.scss";
-import About from "./components/About";
 import video from "./assets/image/bg.mp4";
 
 function App() {
@@ -26,9 +25,6 @@ function App() {
           <div className="flex-1 flex justify-center items-center max-w-4xl w-full">
             <Routes>
               <Route path="/" element={<Pool />} />
-            </Routes>
-            <Routes>
-              <Route path="/about" element={<About />} />
             </Routes>
           </div>
 

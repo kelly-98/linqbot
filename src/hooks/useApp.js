@@ -25,18 +25,23 @@ const useApp = () => {
     };
   }, [account, chainId]);
 
-  const burnForEth = useCallback(async (amount) => {
-    if (!account) return;
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const contract = new ethers.Contract(
-      process.env.REACT_APP_CONTRACT,
-      abi,
-      provider.getSigner()
-    );
-    const decimals = Number(await contract.decimals());
-    var tx = await contract.burnForEth(ethers.utils.parseUnits(amount+'', decimals));
-    await tx.wait();
-  }, [account, chainId]);
+  const burnForEth = useCallback(
+    async (amount) => {
+      if (!account) return;
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(
+        process.env.REACT_APP_CONTRACT,
+        abi,
+        provider.getSigner()
+      );
+      const decimals = Number(await contract.decimals());
+      var tx = await contract.burnForEth(
+        ethers.utils.parseUnits(amount + "", decimals)
+      );
+      await tx.wait();
+    },
+    [account, chainId]
+  );
 
   return {
     getStats,

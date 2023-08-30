@@ -18,8 +18,8 @@ const useAuth = () => {
             //console.log("setupNetwork");
             return;
           } else {
-            await switchNetwork(process.env.REACT_APP_MAIN_CHAIN_ID_HEX);
           }
+          await switchNetwork(process.env.REACT_APP_MAIN_CHAIN_ID_HEX);
         } else {
           //console.log("no error");
         }

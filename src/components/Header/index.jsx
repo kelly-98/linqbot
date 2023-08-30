@@ -85,33 +85,40 @@ export default function Header() {
     : null;
   return (
     <header className="w-full flex item-center justify-between py-10 flex-col gap-5 lg:flex-row">
-      <div className="header-logo">
+      <div className="header-logo max-w-xs mx-auto lg:mx-0">
         <img src={HeaderLogo} alt="header-logo" />
       </div>
-      <ul className="flex justify-center gap-5 border-[1px] border-[#9AF3FA] py-4 px-5 rounded-full lg:gap-10 lg:px-10">
+      <ul className="flex items-center justify-center gap-5 lg:gap-10 lg:px-10">
         <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          }
-          to="/">
-          Home
+          className="font-bold"
+          // className={({ isActive }) =>
+          //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
+          // }
+          target="_blank"
+          rel="noopener noreferrer"
+          to="#">
+          UNISWAP
         </NavLink>
         <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          }
-          to="/about">
-          About
+          className="font-bold"
+          // className={({ isActive }) =>
+          //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
+          // }
+          target="_blank"
+          rel="noopener noreferrer"
+          to="#">
+          DEXTOOLS
         </NavLink>
 
         <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          }
-          to="mailto:dev@linqbot.org"
+          // className={({ isActive }) =>
+          //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
+          // }
+          className="font-bold"
+          to="https://blaze-burnt.gitbook.io/docs/"
           target="_blank"
           rel="noopener noreferrer">
-          Contact Us
+          DOCUMENTATIONS
         </NavLink>
         {/* <div class="load-icon loading">
           <span></span>
@@ -121,7 +128,7 @@ export default function Header() {
       </ul>
       <button
         onClick={connectButtonClicked}
-        className="btn justify-center btn-primary font-semibold uppercase text-center py-4">
+        className="btn justify-center btn-primary font-semibold uppercase text-white text-center py-3 rounded">
         {(function () {
           if (active) {
             return chainId !== Number(process.env.REACT_APP_CHAIN_ID)
