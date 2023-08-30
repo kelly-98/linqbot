@@ -10,11 +10,14 @@ import useApp from "../../hooks/useApp";
 import "./style.scss";
 import { useWeb3React } from "@web3-react/core";
 import useErc20 from "../../hooks/useERC20";
+import { ethers } from "ethers";
 
 export default function Pool() {
   const { account, chainId, active } = useWeb3React();
   const { burnForEth, getStats } = useApp();
-  const { balanceOf } = useErc20();
+  const { balanceOf, totalSupply } = useErc20();
+
+  const [totalSupplyValue, setTotalSupplyValue] = useState(0);
 
   const [inputValue, setInputValue] = useState(0);
 
@@ -52,6 +55,15 @@ export default function Pool() {
     }
   };
 
+  const getTotalSupply = async () => {
+    let x = await totalSupply();
+    setTotalSupplyValue(x);
+  };
+
+  useEffect(() => {
+    getTotalSupply();
+  }, []);
+
   useEffect(() => {
     getData();
   }, [account, chainId, reload]);
@@ -80,7 +92,17 @@ export default function Pool() {
             <div className="flex flex-col justify-between py-8 border-[1px] border-[#FF7A00] rounded-xl px-10">
               <h3 className="text-xl border-b-[1px] pb-3 mb-5">Total Burnt</h3>
               <p className="flex justify-between">
-                <span>{stats.totalBurned ?? 0}</span>{" "}
+                <div>
+                  <span>{stats.totalBurned ?? 0}</span>{" "}
+                  {stats.totalBurned ? (
+                    <span>
+                      ({((stats.totalBurned * 100) / 100000000).toFixed(2)}
+                      %)
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <span className="font-bold">$BLAZE</span>
               </p>
             </div>
