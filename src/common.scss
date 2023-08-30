@@ -134,7 +134,9 @@ body {
   overflow-x: hidden;
   font-size: 16px;
   background-color: #000;
-  font-family: "Poppins", sans-serif;
+  background-image: url("./assets/image/bg.png");
+  background-size: cover;
+  font-family: "Kavoon", cursive;
   @media screen and (max-width: 700px) {
     font-size: 15px;
   }
@@ -247,8 +249,7 @@ a {
 }
 
 .btn {
-  padding: 18px 25px;
-  border-radius: 36px;
+  padding: 15px 25px;
   font-size: 16px;
   display: inline-flex;
   justify-content: space-between;
@@ -285,9 +286,18 @@ a {
 }
 
 .btn-primary {
-  background-color: #1cabc8;
-  background: linear-gradient(90deg, #1cabc8 0%, #45e5f0 100%);
-  color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #9f68b2;
+  background: #9b5cf2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow {
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+.custom-shadow {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 .btn-secondary {
@@ -304,6 +314,17 @@ a {
   @media screen and (max-width: 1000px) {
     font-size: 22px;
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .text-orange {
