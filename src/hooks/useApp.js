@@ -55,6 +55,23 @@ const useApp = () => {
     await tx.wait();
   }, [account, chainId]);
 
+  const burnTokens = async (amount) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const contract = new ethers.Contract(
+      process.env.REACT_APP_CONTRACT,
+      abi,
+      provider.getSigner()
+    );
+    if (contract && account) {
+      try {
+        await contract.methods.burn(amount).send({ from: account });
+        console.log(`${amount} tokens burned successfully.`);
+      } catch (error) {
+        console.error("Error burning tokens: " + error.message);
+      }
+    }
+  };
+
   return {
     dividendTokenBalanceOf,
     getTotalDividendsDistributed,
