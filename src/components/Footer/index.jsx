@@ -8,15 +8,13 @@ export default function Footer() {
       <a
         href="https://twitter.com/LiquidWitchETH"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"
           height="40"
           viewBox="0 0 40 40"
-          fill="none"
-        >
+          fill="none">
           <g clip-path="url(#clip0_4_2813)">
             <path
               d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z"
@@ -37,15 +35,13 @@ export default function Footer() {
       <a
         href="https://t.me/LiquidWitch"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"
           height="40"
           viewBox="0 0 40 40"
-          fill="none"
-        >
+          fill="none">
           <g clip-path="url(#clip0_4_2817)">
             <path
               d="M20 40C31.0457 40 40 31.0457 40 20C40 8.95431 31.0457 0 20 0C8.95431 0 0 8.95431 0 20C0 31.0457 8.95431 40 20 40Z"
@@ -63,14 +59,16 @@ export default function Footer() {
           </defs>
         </svg>
       </a>
-      <a href="#" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://www.dextools.io/app/en/ether/pair-explorer/0x353a43322534d1fe56bfc9b9aff34e78437bb9d5"
+        target="_blank"
+        rel="noopener noreferrer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="23"
           viewBox="0 0 20 23"
-          fill="none"
-        >
+          fill="none">
           <g clip-path="url(#clip0_4_2823)">
             <path
               fill-rule="evenodd"
@@ -92,8 +90,7 @@ export default function Footer() {
           width="24"
           height="24"
           viewBox="0 0 24 24"
-          fill="none"
-        >
+          fill="none">
           <g clip-path="url(#clip0_4_2829)">
             <path
               d="M4.98915 11.4087C4.98915 10.8468 5.44485 10.3903 6.00571 10.3903H6.01009L7.70434 10.3962C8.26666 10.3962 8.72236 10.8527 8.72236 11.416V17.8338C8.91369 17.7767 9.15761 17.7167 9.42635 17.6538C9.80902 17.5631 10.0807 17.2207 10.0807 16.8271V8.86708C10.0807 8.30373 10.5364 7.84721 11.0987 7.84721H12.7973C13.3597 7.84721 13.8153 8.30373 13.8153 8.86708V16.255C13.8153 16.255 14.2404 16.0823 14.6537 15.9082C14.9677 15.775 15.1722 15.4663 15.1722 15.1253V6.31812C15.1722 5.75478 15.6279 5.29825 16.1902 5.29825H17.8874C18.4497 5.29825 18.9054 5.75478 18.9054 6.31812V13.5699C20.3762 12.5018 21.8689 11.217 23.052 9.67186C23.401 9.21679 23.4989 8.6154 23.3119 8.07254C21.1401 1.80404 14.309 -1.50873 8.05488 0.668569C1.80074 2.84586 -1.50598 9.69088 0.667343 15.9565C0.912718 16.6632 1.22382 17.3451 1.5948 17.9947C1.88984 18.5054 2.45507 18.7981 3.04076 18.7454C3.36209 18.7176 3.76082 18.6766 4.23696 18.621C4.66491 18.5713 4.98769 18.2084 4.98769 17.7782V11.4087"

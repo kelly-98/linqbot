@@ -22,8 +22,7 @@ export default function Stake() {
                   }`}
                   onClick={() => {
                     setActiveTab(0);
-                  }}
-                >
+                  }}>
                   overview
                 </h4>
               </div>
@@ -34,8 +33,7 @@ export default function Stake() {
                   }`}
                   onClick={() => {
                     setActiveTab(1);
-                  }}
-                >
+                  }}>
                   stake
                 </h4>
               </div>
@@ -46,13 +44,13 @@ export default function Stake() {
                   <h4 className="text-lg uppercase">available rewards:</h4>
                   <input
                     type="number"
+                    disabled
                     defaultValue={0}
                     className="w-full rounded-lg border-[1px] mt-8 custom-shadow border-[#9F68B2] bg-black px-5 py-3 text-xl text-center"
                   />
                   <button
                     disabled
-                    className="cursor-not-allowed opacity-50 w-full mt-8 btn-primary py-4 rounded-md px-5 text-lg font-semibold uppercase"
-                  >
+                    className="cursor-not-allowed opacity-50 w-full mt-8 btn-primary py-4 rounded-md px-5 text-lg font-semibold uppercase">
                     collect reward
                   </button>
                 </div>
@@ -61,8 +59,7 @@ export default function Stake() {
                   <span className="uppercase  mt-8">unavailable</span>
                   <button
                     disabled
-                    className="cursor-not-allowed opacity-50 w-full mt-8 btn-primary py-4 rounded-md px-5 text-lg font-semibold uppercase"
-                  >
+                    className="cursor-not-allowed opacity-50 w-full mt-8 btn-primary py-4 rounded-md px-5 text-lg font-semibold uppercase">
                     unstake
                   </button>
                 </div>
@@ -81,8 +78,7 @@ export default function Stake() {
                 </div>
                 <button
                   disabled
-                  className="cursor-not-allowed opacity-50 w-fit mt-8 btn-primary py-4 rounded-md px-10 text-lg font-semibold uppercase"
-                >
+                  className="cursor-not-allowed opacity-50 w-fit mt-8 btn-primary py-4 rounded-md px-10 text-lg font-semibold uppercase">
                   stake
                 </button>
               </div>

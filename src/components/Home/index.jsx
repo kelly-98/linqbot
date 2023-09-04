@@ -10,8 +10,7 @@ export default function Home() {
         <img className="hidden max-w-xs lg:block" src={gif1} alt="" />
         <Link
           to="/claim"
-          className="absolute -top-32 left-[50%] -translate-x-2/4 max-w-[150px] transition-all hover:scale-95 hover:opacity-75"
-        >
+          className="absolute -top-32 left-[50%] -translate-x-2/4 max-w-[150px] transition-all hover:scale-95 hover:opacity-75">
           <img src={ball} alt="" />
           <span className="absolute top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 text-shadow uppercase">
             Lp Claim
@@ -19,8 +18,7 @@ export default function Home() {
         </Link>
         <Link
           to="/analytics"
-          className="absolute -bottom-48 left-[50%] -translate-x-2/4  max-w-[150px] transition-all hover:scale-95 hover:opacity-75"
-        >
+          className="absolute -bottom-48 left-[50%] -translate-x-2/4  max-w-[150px] transition-all hover:scale-95 hover:opacity-75">
           <img src={ball} alt="" />
           <span className="absolute top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 text-shadow uppercase">
             Analytics
@@ -34,8 +32,7 @@ export default function Home() {
         </a>
         <Link
           to="/stake"
-          className="absolute -right-20 lg:-right-44 top-0 max-w-[130px] lg:max-w-[150px] transition-all hover:scale-95 hover:opacity-75"
-        >
+          className="absolute -right-20 lg:-right-44 top-0 max-w-[130px] lg:max-w-[150px] transition-all hover:scale-95 hover:opacity-75">
           <img src={ball} alt="" />
           <span className="absolute top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 text-shadow uppercase">
             Lp staking
@@ -47,7 +44,11 @@ export default function Home() {
             Buy $LINW
           </span>
         </a>
-        <a className="absolute -right-20 lg:-right-44 -bottom-10 max-w-[130px] lg:max-w-[150px] transition-all hover:scale-95 hover:opacity-75">
+        <a
+          href="https://www.dextools.io/app/en/ether/pair-explorer/0x353a43322534d1fe56bfc9b9aff34e78437bb9d5"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute -right-20 lg:-right-44 -bottom-10 max-w-[130px] lg:max-w-[150px] transition-all hover:scale-95 hover:opacity-75">
           <img src={ball} alt="" />
           <span className="absolute top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 text-shadow uppercase">
             Chart
@@ -63,8 +64,7 @@ export default function Home() {
           href="https://liquidwitch.gitbook.io/docs/"
           target="_blank"
           rel="noopener noreferrer"
-          className="border-[1px] bg-black/30 border-[#9f68b2] rounded-lg py-4 px-5 transition-all hover:opacity-70 hover:scale-105"
-        >
+          className="border-[1px] bg-black/30 border-[#9f68b2] rounded-lg py-4 px-5 transition-all hover:opacity-70 hover:scale-105">
           DOCS
         </a>
         <a className="border-[1px] bg-black/30 border-[#9f68b2] rounded-lg py-4 px-5 transition-all hover:opacity-70 hover:scale-105">
@@ -72,6 +72,12 @@ export default function Home() {
         </a>
         <p className="my-5 text-xl">
           Empowering a Hybrid Future: Building a Connected Tomorrow.
+        </p>
+        <p>
+          {" "}
+          0x9894331c4adce8c746192f2cffdc0a6912145c83
+          <br />
+          contact@liquidwitch.com
         </p>
       </div>
     </section>
