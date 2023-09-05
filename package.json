@@ -19,6 +19,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.57.1",
     "tailwind": "^4.0.0",
+    "wagmi": "^1.4.1",
     "web-vitals": "^2.1.4",
     "web3": "^1.8.1"
   },
