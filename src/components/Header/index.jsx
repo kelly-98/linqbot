@@ -96,7 +96,7 @@ export default function Header() {
     : null;
   return (
     <header className="w-full flex item-center justify-between py-8 flex-col gap-5 lg:flex-row">
-      <div className="header-logo max-w-xs mx-auto lg:mx-0">
+      <div className="header-logo max-w-md mx-auto lg:mx-0">
         <img src={HeaderLogo} alt="header-logo" />
       </div>
       <ul className="flex items-center justify-center gap-5 lg:gap-10 lg:px-10">
@@ -109,7 +109,7 @@ export default function Header() {
           rel="noopener noreferrer"
           to="#"
         >
-          UNISWAP
+          CHART
         </NavLink>
         <NavLink
           className="font-bold"
@@ -128,11 +128,11 @@ export default function Header() {
           //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
           // }
           className="font-bold"
-          // to="https://blaze-burnt.gitbook.io/docs/"
+          to="https://boost-token.gitbook.io/docs/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          DOCUMENTATIONS
+          DOCS
         </NavLink>
         {/* <div class="load-icon loading">
           <span></span>
@@ -142,7 +142,7 @@ export default function Header() {
       </ul>
       <button
         onClick={connectButtonClicked}
-        className="btn justify-center btn-primary font-semibold uppercase text-white text-center py-3 rounded"
+        className="btn px-5 justify-center btn-primary font-semibold uppercase text-center py-5 rounded"
       >
         {(function () {
           if (isConnected) {
@@ -160,12 +160,13 @@ export default function Header() {
         }}
       >
         <div className="">
-          <div className="w-20 mx-auto">
+          <div className="w-32 lg:w-36 rounded-full overflow-hidden mx-auto">
             <img src={Logo} alt="" />
           </div>
           <h2 className="text-xl font-bold mt-4 mb-1">{accountEllipsis}</h2>
           <h2 className="font-bold">
-            {Number(Number(ethBalance?.formatted??"0").toFixed(5)) ?? 0} <span>ETH</span>
+            {Number(Number(ethBalance?.formatted ?? "0").toFixed(5)) ?? 0}{" "}
+            <span>ETH</span>
           </h2>
         </div>
         <div className="flex gap-10 mt-5">

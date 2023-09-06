@@ -7,15 +7,17 @@ export default function Footer() {
   return (
     <div className="pb-5 flex gap-5 justify-center items-center">
       <a
-        href="https://twitter.com/HawaiiBurnt"
+        href="https://twitter.com/BoostTokenETH"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
           height="50"
           viewBox="0 0 50 50"
-          fill="none">
+          fill="none"
+        >
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -25,15 +27,17 @@ export default function Footer() {
         </svg>
       </a>
       <a
-        href="https://t.me/HawaiiBurnt"
+        href="https://t.me/BoostTokenETH"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"
           height="48"
           viewBox="0 0 48 48"
-          fill="none">
+          fill="none"
+        >
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
