@@ -4,10 +4,10 @@ import erc20Abi from "../utils/erc20";
 import { useWeb3React } from "@web3-react/core";
 
 const useErc20 = () => {
-  const tokenContractAddress = process.env.REACT_APP_CONTRACT;
+  const tokenContractAddress = process.env.REACT_APP_TOKEN_CONTRACT;
   const { account, chainId } = useWeb3React();
 
-  const balanceOf = useCallback(async () => {
+  const getBalanceOf = useCallback(async () => {
     if (!account) return 0;
     const provider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_RPC_URL);
     const tokenContract = new ethers.Contract(
@@ -20,7 +20,7 @@ const useErc20 = () => {
     return +ethers.utils.formatUnits(balance, decimals);
   }, [account, chainId]);
 
-  const totalSupply = useCallback(async () => {
+  const getTotalSupply = useCallback(async () => {
 
     const provider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_RPC_URL);
     const tokenContract = new ethers.Contract(
@@ -59,20 +59,19 @@ const useErc20 = () => {
     [account, chainId]
   );
 
-  const getETH = useCallback(async () => {
-    if (!account) return 0;
+  const getETH = useCallback(async (owner) => {
     const provider = new ethers.providers.JsonRpcProvider(
       process.env.REACT_APP_RPC_URL
     );
-    const balance = await provider.getBalance(account);
+    const balance = await provider.getBalance(owner);
     return +ethers.utils.formatEther(balance);
-  }, [account, chainId]);
+  });
 
   return {
     getETH,
-    balanceOf,
+    getBalanceOf,
     approve,
-    totalSupply,
+    getTotalSupply,
   };
 };
 export default useErc20;

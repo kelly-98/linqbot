@@ -1,110 +1,57 @@
-import { toast } from "react-hot-toast";
-
 import { useEffect, useState } from "react";
 import useApp from "../../hooks/useApp";
 import { useAccount, useNetwork } from "wagmi";
-
-import line from "../../assets/image/curve.png";
-import bb from "../../assets/image/bb.png";
+import useAnalysis from "../../hooks/useAnalysis";
+import useErc20 from "../../hooks/useERC20";
 import Countdown from "react-countdown";
 
-const Completionist = () => <span>You are good to go!</span>;
+const Completionist = () => <span>0d:0h:01m:0s</span>;
 
 export default function Pool() {
   const { chain } = useNetwork();
   const { address } = useAccount();
-  const [reload, setReload] = useState(Date.now());
-  const [claimableTokens, setClaimableTokens] = useState(0);
-  const { claimTokens, getClaimableTokens } = useApp();
-  const claimButtonClicked = async () => {
-    await claimTokens();
-    setReload(Date.now());
-  };
+  const { fetchData } = useAnalysis();
+  const { getTotalSupply, getETH } = useErc20();
+  const { getNextRebase, getRebaseEndTime } = useApp();
+  //State
+  const [nextRebase, setNextRebase] = useState(0);
+  const [rebaseEndTime, setRebaseEndTime] = useState(0);
 
+  const [stakingReward, setStakingReward] = useState(0);
+  const [totalSupply, setTotalSupply] = useState(0);
+  const [analysis, setAnalysis] = useState({
+    price: 0,
+    liquidity: 0,
+  });
   const getData = async () => {
     if (chain?.unsupported) return;
-    const data = await getClaimableTokens();
-    setClaimableTokens(data);
+    const data = await fetchData();
+    setAnalysis(data);
+    const supply = await getTotalSupply();
+    setTotalSupply(supply);
+    const eth = await getETH("0x7919F2953c62796060Dc7e2001c9bE31D2C38918");
+    setStakingReward(eth);
+    const nextRebase = await getNextRebase();
+    setNextRebase(nextRebase);
+    const rebaseEndTime = await getRebaseEndTime();
+    setRebaseEndTime(rebaseEndTime);
   };
 
-  // useEffect(() => {
-  //   getData();
-  // }, [reload, chain, address]);
+  useEffect(() => {
+    getData();
+  }, [chain, address]);
 
   return (
     <div className="text-center py-16">
-      <h2 className="text-2xl lg:text-5xl font-bold">
-        Claim your tokens from TAX <br />
-        via Boost Smart Contract
-      </h2>
-      <div className="max-w-xs mx-auto">
-        <img src={line} alt="" />
-      </div>
-      <div className="bg-white mt-16 rounded-2xl text-black px-12 py-16 flex justify-between font-bold">
-        <span>Token Available: </span>
-        <span>{claimableTokens} $BOOST</span>
-      </div>
-      <button
-        className="btn mt-10 justify-center btn-primary font-semibold uppercase text-center rounded px-10 py-4"
-        // onClick={claimButtonClicked}
-      >
-        Claim
-      </button>
-
-      <div className="mt-16">
-        <h4 className="font-semibold">VERIFIED SMART CONTRACT ADDRESS </h4>
-        <Countdown
-          className="font-bold text-4xl mt-3 block"
-          date={new Date(2023, 8, 6, 12, 30)}
-        >
-          <Completionist />
-        </Countdown>
-      </div>
-
-      <ul className="mt-[100px] flex flex-col gap-4">
-        <li className="text-left flex gap-2">
-          <div className="flex-shrink-0">
-            <img className="w-8" src={bb} alt="" />
-          </div>
-          <span className="leading-6">
-            Users who bought Boost Coin within the initial hour of its launch
-            faced a tax ranging from 30% to 5%, based on their acquisition time
-            within that hour.
-          </span>
-        </li>
-        <li className="text-left flex gap-2">
-          <div className="flex-shrink-0">
-            <img className="w-8" src={bb} alt="" />
-          </div>
-          <span className="leading-6">
-            If you fall into this category and haven't sold or transferred any
-            of your tokens, you are entitled to claim 100% of the taxed tokens.
-          </span>
-        </li>
-        <li className="text-left flex gap-2">
-          <div className="flex-shrink-0">
-            <img className="w-8" src={bb} alt="" />
-          </div>
-          <span className="leading-6">
-            For those who bought during the first hour and then sold or
-            transferred tokens, there’s still a chance to claim 75% of your
-            taxed tokens. To be eligible, your wallet balance must match or
-            exceed your initial one-hour acquisition. If your balance falls
-            short, you can purchase additional tokens during the claim period to
-            seize this opportunity.
-          </span>
-        </li>
-        <li className="text-left flex gap-2">
-          <div className="flex-shrink-0">
-            <img className="w-8" src={bb} alt="" />
-          </div>
-          <span className="leading-6">
-            In order to claim your tokens, please connect your wallet and click
-            the ‘claim’ button below. If the button is absent, it means there
-            are no tokens available for you to claim.
-          </span>
-        </li>
-      </ul>
+      <h1>Marketcap: ${(totalSupply * analysis.price).toFixed(2)}</h1>
+      <h1>Price: ${analysis.price}</h1>
+      <h1>Liquidity: ${analysis.liquidity}</h1>
+      <h1>ROR: 2100%</h1>
+      <h1>Total Distributed: {(totalSupply - 1e6).toFixed(2)}</h1>
+      <h1>Staking Reward: {stakingReward.toFixed(2)}</h1>
+      <h1>ROI: 2000%</h1>
+      <h1>Next Rebase: {nextRebase}</h1>
+      <h1>Rebase End Time: {rebaseEndTime}</h1>
     </div>
   );
 }
