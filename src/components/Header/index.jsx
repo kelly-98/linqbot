@@ -22,24 +22,20 @@ function Modal({ children, shown, close }) {
       onClick={() => {
         // close modal when outside of modal is clicked
         close();
-      }}
-    >
+      }}>
       <div
         className="modal-content px-6 py-6 text-center flex flex-col justify-between items-center"
         onClick={(e) => {
           // do not close modal if anything inside modal content is clicked
           e.stopPropagation();
-        }}
-      >
+        }}>
         <button
           className="modal-custom-close transition-all hover:scale-110"
-          onClick={close}
-        >
+          onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
-            viewBox="0 0 384 512"
-          >
+            viewBox="0 0 384 512">
             <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
           </svg>
         </button>
@@ -95,70 +91,51 @@ export default function Header() {
     ? `${address.substring(0, 5)}...${address.substring(address.length - 4)}`
     : null;
   return (
-    <header className="w-full flex item-center justify-between py-8 flex-col gap-5 lg:flex-row">
-      <div className="header-logo max-w-md mx-auto lg:mx-0">
+    <header className="w-full flex item-center justify-between py-4 px-16 bg-black/40 flex-col gap-5 border-b border-b-[#797979] lg:flex-row">
+      <div className="header-logo max-w-xs mx-auto lg:mx-0">
         <img src={HeaderLogo} alt="header-logo" />
       </div>
-      <ul className="flex items-center justify-center gap-5 lg:gap-10 lg:px-10">
+      <ul className="flex items-center text-xl lg:text-2xl justify-center gap-8 lg:gap-16 lg:px-10">
         <NavLink
-          className="font-bold"
-          // className={({ isActive }) =>
-          //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          // }
-          target="_blank"
-          rel="noopener noreferrer"
-          to="#"
-        >
-          CHART
+          className={({ isActive }) =>
+            isActive ? "link-active font-black" : "link-normal font-light"
+          }
+          to="/">
+          Analytics
         </NavLink>
         <NavLink
-          className="font-bold"
-          // className={({ isActive }) =>
-          //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          // }
-          target="_blank"
-          rel="noopener noreferrer"
-          to="#"
-        >
-          DEXTOOLS
+          className={({ isActive }) =>
+            isActive ? "link-active font-black" : "link-normal font-light"
+          }
+          to="/stake">
+          Staking
         </NavLink>
 
-        <NavLink
-          // className={({ isActive }) =>
-          //   isActive ? "text-white font-bold" : "text-[#ffffff33] font-medium"
-          // }
-          className="font-bold"
-          to="https://boost-token.gitbook.io/docs/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          DOCS
-        </NavLink>
         {/* <div class="load-icon loading">
           <span></span>
           <span></span>
           <span></span>
         </div> */}
       </ul>
-      <button
-        onClick={connectButtonClicked}
-        className="btn px-5 justify-center btn-primary font-semibold uppercase text-center py-5 rounded"
-      >
-        {(function () {
-          if (isConnected) {
-            return chain?.unsupported ? "Switch network" : accountEllipsis;
-          } else {
-            return "Connect Wallet";
-          }
-        })()}
-      </button>
+      <div className="flex justify-center items-center">
+        <button
+          onClick={connectButtonClicked}
+          className="btn px-8 justify-center items-center btn-primary font-semibold uppercase text-center py-3 rounded-full h-fit">
+          {(function () {
+            if (isConnected) {
+              return chain?.unsupported ? "Switch network" : accountEllipsis;
+            } else {
+              return "Connect Wallet";
+            }
+          })()}
+        </button>
+      </div>
 
       <Modal
         shown={modalIsOpen}
         close={() => {
           setIsOpen(false);
-        }}
-      >
+        }}>
         <div className="">
           <div className="w-32 lg:w-36 rounded-full overflow-hidden mx-auto">
             <img src={Logo} alt="" />
@@ -183,8 +160,7 @@ export default function Header() {
                     setIsCopy(false);
                   }, 3000);
                 }
-              }}
-            ></i>
+              }}></i>
             <span>{isCopy ? "Copied!" : "Copy Address"}</span>
           </div>
           <div
@@ -192,8 +168,7 @@ export default function Header() {
             onClick={() => {
               closeModal();
               disconnect();
-            }}
-          >
+            }}>
             <i className="fa-solid fa-arrow-right-from-bracket cursor-pointer mb-3 text-xl transition-all hover:scale-110"></i>
             <span>Disconnect</span>
           </div>
