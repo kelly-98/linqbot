@@ -10,13 +10,13 @@ export default function Footer() {
   return (
     <div className="pb-5 flex gap-5 justify-center items-center">
       <a
-        href="https://t.me/ScorpioETH"
+        href="https://t.me/ElongateERC"
         target="_blank"
         rel="noopener noreferrer">
         <img src={tg} alt="" />
       </a>
       <a
-        href="https://twitter.com/ScorpioToken"
+        href="https://twitter.com/elongateerc20"
         target="_blank"
         rel="noopener noreferrer">
         <img src={tw} alt="" />

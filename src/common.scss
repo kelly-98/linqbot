@@ -327,31 +327,13 @@ a {
 }
 
 .btn-primary {
-  // background-color: #fff;
-  background: linear-gradient(
-      86deg,
-      #797979 -43.81%,
-      #919191 -40.96%,
-      #b8b8b8 -33.83%,
-      #d7d7d7 -28.12%,
-      #ededed -22.41%,
-      #fafafa -16.7%,
-      #fff -12.42%,
-      #f9f9f9 -3.86%,
-      #e9e9e9 6.12%,
-      #cfcfcf 16.11%,
-      #c2c2c2 20.39%,
-      #a3a3a3 37.51%,
-      #e4e4e4 66.05%,
-      #fff 76.04%,
-      #f9f9f9 78.89%,
-      #e9e9e9 84.6%,
-      #cecece 90.3%,
-      #aaa 96.01%,
-      #909090 98.86%
-    ),
-    linear-gradient(9deg, #9f7233 -1.32%, #f0d47a 122.83%, #9f7233 170.61%);
-  color: #585858;
+  background: #4a50f1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid #000;
+}
+
+.box-shadow-custom-1 {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 .btn-secondary {
@@ -426,33 +408,33 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-.link-active {
-  background: linear-gradient(
-    86deg,
-    #797979 -43.81%,
-    #919191 -40.96%,
-    #b8b8b8 -33.83%,
-    #d7d7d7 -28.12%,
-    #ededed -22.41%,
-    #fafafa -16.7%,
-    #fff -12.42%,
-    #f9f9f9 -3.86%,
-    #e9e9e9 6.12%,
-    #cfcfcf 16.11%,
-    #c2c2c2 20.39%,
-    #a3a3a3 37.51%,
-    #e4e4e4 66.05%,
-    #fff 76.04%,
-    #f9f9f9 78.89%,
-    #e9e9e9 84.6%,
-    #cecece 90.3%,
-    #aaa 96.01%,
-    #909090 98.86%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+// .link-active {
+//   background: linear-gradient(
+//     86deg,
+//     #797979 -43.81%,
+//     #919191 -40.96%,
+//     #b8b8b8 -33.83%,
+//     #d7d7d7 -28.12%,
+//     #ededed -22.41%,
+//     #fafafa -16.7%,
+//     #fff -12.42%,
+//     #f9f9f9 -3.86%,
+//     #e9e9e9 6.12%,
+//     #cfcfcf 16.11%,
+//     #c2c2c2 20.39%,
+//     #a3a3a3 37.51%,
+//     #e4e4e4 66.05%,
+//     #fff 76.04%,
+//     #f9f9f9 78.89%,
+//     #e9e9e9 84.6%,
+//     #cecece 90.3%,
+//     #aaa 96.01%,
+//     #909090 98.86%
+//   );
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
 
 .app {
   color: #fff;

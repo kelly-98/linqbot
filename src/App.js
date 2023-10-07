@@ -6,6 +6,10 @@ import Footer from "./components/Footer";
 import "./common.scss";
 import Stake from "./components/Stake";
 
+import cloud1 from "./assets/image/cloud-1.png";
+import cloud2 from "./assets/image/cloud-2.png";
+import cloud3 from "./assets/image/cloud-3.png";
+
 function App() {
   return (
     <div className="app min-h-[100vh] relative" lang="en-US">
@@ -18,6 +22,17 @@ function App() {
               <Route path="/" element={<Pool />} />
               <Route path="/stake" element={<Stake />} />
             </Routes>
+          </div>
+
+          <div className="hidden lg:block max-w-[250px] absolute top-10 -left-10">
+            <img src={cloud1} alt="" />
+          </div>
+
+          <div className="hidden lg:block  max-w-[200px] absolute top-10 right-0">
+            <img src={cloud2} alt="" />
+          </div>
+          <div className="hidden lg:block  max-w-[250px] absolute bottom-20 left-0">
+            <img src={cloud3} alt="" />
           </div>
 
           <Footer />

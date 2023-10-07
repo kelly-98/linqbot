@@ -10,14 +10,4 @@
     align-items: center;
     gap: 50px;
   }
-  &-logo {
-    width: 300px;
-    @media screen and (max-width: 1250px) {
-      width: 250px;
-    }
-
-    img {
-      width: 100%;
-    }
-  }
 }

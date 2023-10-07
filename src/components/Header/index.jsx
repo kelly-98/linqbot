@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HeaderLogo from "../../assets/image/small-logo.png";
+import HeaderLogo from "../../assets/image/logo-text.png";
 import Logo from "../../assets/image/logo.png";
 import useErc20 from "../../hooks/useERC20";
 import { useEffect } from "react";
@@ -91,25 +91,17 @@ export default function Header() {
     ? `${address.substring(0, 5)}...${address.substring(address.length - 4)}`
     : null;
   return (
-    <header className="w-full flex item-center justify-between py-4 px-16 bg-black/40 flex-col gap-5 border-b border-b-[#797979] lg:flex-row">
-      <div className="header-logo max-w-xs mx-auto lg:mx-0">
-        <img src={HeaderLogo} alt="header-logo" />
+    <header className="w-full flex item-center justify-between py-4 px-16 bg-white flex-col gap-5 lg:flex-row">
+      <div className="header-logo flex items-center w-[200px] mx-auto lg:mx-0">
+        <img
+          className="h-[30px] max-w-full"
+          src={HeaderLogo}
+          alt="header-logo"
+        />
       </div>
-      <ul className="flex items-center text-xl lg:text-2xl justify-center gap-8 lg:gap-16 lg:px-10">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "link-active font-black" : "link-normal font-light"
-          }
-          to="/">
-          Analytics
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "link-active font-black" : "link-normal font-light"
-          }
-          to="/stake">
-          Staking
-        </NavLink>
+      <ul className="flex items-center text-lg lg:text-xl justify-center gap-8 lg:gap-16 lg:px-10 text-black">
+        <NavLink to="/">Analytics</NavLink>
+        <NavLink to="/stake">Staking</NavLink>
 
         {/* <div class="load-icon loading">
           <span></span>
@@ -120,7 +112,7 @@ export default function Header() {
       <div className="flex justify-center items-center">
         <button
           onClick={connectButtonClicked}
-          className="btn px-8 justify-center items-center btn-primary font-semibold uppercase text-center py-3 rounded-full h-fit">
+          className="btn px-8 justify-center items-center btn-primary font-semibold uppercase text-center py-3 rounded-md h-fit">
           {(function () {
             if (isConnected) {
               return chain?.unsupported ? "Switch network" : accountEllipsis;
